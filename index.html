@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+
+  <title>AlphaVictoria</title>
+</head>
+
+<body>
+  <nav class="sidebar close">
+    <header>
+      <div class="image-text">
+        <span class="image">
+          <img src="logo.png" alt="">
+        </span>
+
+        <div class="text logo-text">
+          <span class="name">AlphaVictoria</span>
+          <span class="profession">Multiuse Webserver</span>
+        </div>
+      </div>
+
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+
+
+
+
+
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <div class="menu-bar">
+      <div class="menu">
+
+        <li class="search-box">
+          <i class='bx bx-search icon'></i>
+          <input type="text" placeholder="Home">
+        </li>
+
+        <ul class="menu-links">
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div1">
+              <i class='bx bx-check icon'></i>
+              <span class="text nav-text">To do list</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div2">
+              <i class='bx bx-devices icon'></i>
+              <span class="text nav-text">Device control</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div3">
+              <i class='bx bx-volume-full icon'></i>
+              <span class="text nav-text">Virtual assistant</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div4">
+              <i class='bx bx-leaf icon'></i>
+              <span class="text nav-text">Terrarium monitor</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div5">
+              <i class='bx bx-body icon'></i>
+              <span class="text nav-text">People DB</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#" class="toggle-btn" data-target="div6">
+              <i class='bx bx-time icon'></i>
+              <span class="text nav-text">Soon</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <li class="">
+          <a href="#">
+            <i class='bx bx-power-off icon'></i>
+            <span class="text nav-text">Shut down all</span>
+          </a>
+        </li>
+
+        <li class="mode">
+          <div class="sun-moon">
+            <i class='bx bx-moon icon moon'></i>
+            <i class='bx bx-sun icon sun'></i>
+          </div>
+          <span class="mode-text text">Dark mode</span>
+
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+
+      </div>
+    </div>
+
+  </nav>
+
+  <section class="home">
+    <div class="text">Dashboard Sidebar</div>
+    <div id="div1" class="page">This is div 1</div>
+    <div id="div2" class="page hidden">This is div 2</div>
+    <div id="div3" class="page hidden">This is div 3</div>
+    <div id="div4" class="page hidden">This is div 1</div>
+    <div id="div5" class="page hidden">This is div 2</div>
+    <div id="div6" class="page hidden">This is div 3</div>
+  </section>
+ 
+  <script>
+    const body = document.querySelector('body'),
+      sidebar = body.querySelector('nav'),
+      toggle = body.querySelector(".toggle"),
+      searchBtn = body.querySelector(".search-box"),
+      modeSwitch = body.querySelector(".toggle-switch"),
+      modeText = body.querySelector(".mode-text");
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("close");
+    })
+    searchBtn.addEventListener("click", () => {
+      sidebar.classList.remove("close");
+    })
+    modeSwitch.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      if (body.classList.contains("dark")) {
+        modeText.innerText = "Light mode";
+      } else {
+        modeText.innerText = "Dark mode";
+      }
+    });
+  </script>
+
+
+<script>
+      const toggleBtns = document.querySelectorAll('.toggle-btn');
+      const divs = document.querySelectorAll('.page');
+    
+      toggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+    
+          toggleDivs(targetId);
+        });
+      });
+    
+      function toggleDivs(targetId) {
+        divs.forEach(div => {
+          if (div.id === targetId) {
+            div.classList.remove('hidden');
+          } else {
+            div.classList.add('hidden');
+          }
+        });
+      }
+</script>
+
+</body>
+
+</html>
+
